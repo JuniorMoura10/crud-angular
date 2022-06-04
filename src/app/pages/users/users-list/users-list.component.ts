@@ -24,7 +24,7 @@ export class UsersListComponent implements OnInit {
 
   deleteUser(id: number): void{
       this.userService.deleteUser(id).subscribe(response => {
-        alert('Usuário ${user.nome} foi excluído com sucesso!')
+        alert(`Usuário foi excluído com sucesso!`)
       })
   }
 
