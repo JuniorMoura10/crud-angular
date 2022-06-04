@@ -1,7 +1,8 @@
+import { User } from './../models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,10 @@ export class UserService {
   // salva usuário no banco - CREATE
   postUser(user: User): Observable<User>{
     return this.httpClient.post<User>(this.apiUrl, user);
+  }
+
+  // Exclui o usuário do banco - DELETE
+  deleteUser(id: number):Observable<User>{
+    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`)
   }
 }
