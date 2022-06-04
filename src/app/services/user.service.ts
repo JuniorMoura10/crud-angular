@@ -32,4 +32,14 @@ export class UserService {
   deleteUser(id: number):Observable<User>{
     return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`)
   }
+
+  // Edita usuário UPDATE
+  updateUser(id: string, user: User):Observable<User> {
+    return this.httpClient.put<User>(`${this.apiUrl}/id/${id}`, user, this.httpOptions);
+  }
+
+  // Lista único usuário
+  getUser(id: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.apiUrl}/id/${id}`)
+  }
 }
